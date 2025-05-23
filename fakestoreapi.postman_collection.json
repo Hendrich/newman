@@ -1,0 +1,32 @@
+{
+	"info": {
+		"_postman_id": "280af6e5-d771-43ed-a8ef-b87f411f80c7",
+		"name": "fakestoreapi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9541602",
+		"_collection_link": "https://afteroffice.postman.co/workspace/API-testing~cb2afdf2-9fcd-4817-a8b0-ef1d3837f29a/collection/9541602-280af6e5-d771-43ed-a8ef-b87f411f80c7?action=share&source=collection_link&creator=9541602"
+	},
+	"item": [
+		{
+			"name": "https://fakestoreapi.com/users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fakestoreapi.com/users/",
+					"protocol": "https",
+					"host": [
+						"fakestoreapi",
+						"com"
+					],
+					"path": [
+						"users",
+						""
+					]
+				},
+				"description": "Generated from cURL: curl -X GET 'https://fakestoreapi.com/users'"
+			},
+			"response": []
+		}
+	]
+}

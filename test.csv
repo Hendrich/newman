@@ -1,0 +1,2 @@
+iteration,collectionName,requestName,method,url,status,code,responseTime,responseSize,executed,failed,skipped,totalAssertions,executedCount,failedCount,skippedCount
+"1","fakestoreapi","https://fakestoreapi.com/users","GET","https://fakestoreapi.com/users/","OK","200","792","2990",,,,"0","0","0","0"
