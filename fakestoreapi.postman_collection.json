@@ -1,32 +1,293 @@
 {
-	"info": {
-		"_postman_id": "280af6e5-d771-43ed-a8ef-b87f411f80c7",
-		"name": "fakestoreapi",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "9541602",
-		"_collection_link": "https://afteroffice.postman.co/workspace/API-testing~cb2afdf2-9fcd-4817-a8b0-ef1d3837f29a/collection/9541602-280af6e5-d771-43ed-a8ef-b87f411f80c7?action=share&source=collection_link&creator=9541602"
-	},
-	"item": [
-		{
-			"name": "https://fakestoreapi.com/users",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://fakestoreapi.com/users/",
-					"protocol": "https",
-					"host": [
-						"fakestoreapi",
-						"com"
-					],
-					"path": [
-						"users",
-						""
-					]
-				},
-				"description": "Generated from cURL: curl -X GET 'https://fakestoreapi.com/users'"
-			},
-			"response": []
-		}
-	]
+  "info": {
+    "_postman_id": "280af6e5-d771-43ed-a8ef-b87f411f80c7",
+    "name": "fakestoreapi",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "9541602",
+    "_collection_link": "https://go.postman.co/collection/9541602-280af6e5-d771-43ed-a8ef-b87f411f80c7?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "https://fakestoreapi.com/users",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              " \r",
+              "pm.test('Response has email', function () {\r",
+              "    const responseJson = pm.response.json();\r",
+              "    console.log(responseJson)\r",
+              "    // pm.expect(responseJson[0]).to.have.property('email');\r",
+              "});\r",
+              "\r",
+              "\r",
+              "const jsonData = pm.response.json();\r",
+              "const items = jsonData[0].email;\r",
+              "\r",
+              "// Check if any item has a title matching the expected value\r",
+              "const expectedTitle = pm.iterationData.get(\"john@gmail.com\");\r",
+              "const foundItem = items.find(item => item.title === expectedTitle);\r",
+              "\r",
+              "pm.test(`Title '${expectedTitle}' exists`, () => {\r",
+              "    pm.expect(foundItem).to.not.be.undefined;\r",
+              "});\r",
+              "\r",
+              "// pm.test(\"Your Email\", function () {\r",
+              "//     var jsonData = pm.response.json();\r",
+              "//     // console.log(jsonData[1].name.firstname)\r",
+              "//     pm.expect(jsonData[1].email).to.eql(\"morrison@gmail.com\");\r",
+              "// });\r",
+              "\r",
+              "\r",
+              "// pm.test(\"Assertion Firstname\", function () {\r",
+              "//     var jsonData = pm.response.json();\r",
+              "//     // console.log(jsonData[1].name.firstname)\r",
+              "//     pm.expect(jsonData[1].name.firstname).to.eql(\"david\");\r",
+              "    \r",
+              "// });\r",
+              "\r",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://fakestoreapi.com/users/",
+          "protocol": "https",
+          "host": [
+            "fakestoreapi",
+            "com"
+          ],
+          "path": [
+            "users",
+            ""
+          ]
+        },
+        "description": "Generated from cURL: curl -X GET 'https://fakestoreapi.com/users'"
+      },
+      "response": []
+    },
+    {
+      "name": "https://fakestoreapi.com/users",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"username\": \"gogon\",\r\n    \"email\": \"gohn@example.com\",\r\n    \"password\": \"pass123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://fakestoreapi.com/users",
+          "protocol": "https",
+          "host": [
+            "fakestoreapi",
+            "com"
+          ],
+          "path": [
+            "users"
+          ]
+        },
+        "description": "Generated from cURL: curl -X POST 'https://fakestoreapi.com/users' -H 'Content-Type: application/json' -d '{\"username\": \"john_doe\", \"email\": \"john@example.com\", \"password\": \"pass123\"}'"
+      },
+      "response": []
+    },
+    {
+      "name": "https://fakestoreapi.com/users/1",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"username\": \"Budi_jo_testing\",\r\n    \"email\": \"john.updated@example.com\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://fakestoreapi.com/users/1",
+          "protocol": "https",
+          "host": [
+            "fakestoreapi",
+            "com"
+          ],
+          "path": [
+            "users",
+            "1"
+          ]
+        },
+        "description": "Generated from cURL: curl -X PUT 'https://fakestoreapi.com/users/1' -H 'Content-Type: application/json' -d '{\"username\": \"john_doe_updated\", \"email\": \"john.updated@example.com\"}'"
+      },
+      "response": []
+    },
+    {
+      "name": "https://fakestoreapi.com/users/1",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "https://fakestoreapi.com/users/1",
+          "protocol": "https",
+          "host": [
+            "fakestoreapi",
+            "com"
+          ],
+          "path": [
+            "users",
+            "1"
+          ]
+        },
+        "description": "Generated from cURL: curl -X DELETE 'https://fakestoreapi.com/users/1'"
+      },
+      "response": []
+    },
+    {
+      "name": "https://fakestoreapi.com/users/1 Copy",
+      "request": {
+        "method": "OPTIONS",
+        "header": [],
+        "url": {
+          "raw": "https://fakestoreapi.com/products/1 ",
+          "protocol": "https",
+          "host": [
+            "fakestoreapi",
+            "com"
+          ],
+          "path": [
+            "products",
+            "1 "
+          ]
+        },
+        "description": "Generated from cURL: curl -X DELETE 'https://fakestoreapi.com/users/1'"
+      },
+      "response": []
+    },
+    {
+      "name": "https://fakestoreapi.com/users/1 Copy 2",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"Updated Product Title\"\r\n\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://fakestoreapi.com/products/2",
+          "protocol": "https",
+          "host": [
+            "fakestoreapi",
+            "com"
+          ],
+          "path": [
+            "products",
+            "2"
+          ]
+        },
+        "description": "Generated from cURL: curl -X DELETE 'https://fakestoreapi.com/users/1'"
+      },
+      "response": []
+    },
+    {
+      "name": "https://fakestoreapi.com/users/1 Copy 3",
+      "request": {
+        "method": "HEAD",
+        "header": [],
+        "url": {
+          "raw": "https://fakestoreapi.com/products/1",
+          "protocol": "https",
+          "host": [
+            "fakestoreapi",
+            "com"
+          ],
+          "path": [
+            "products",
+            "1"
+          ]
+        },
+        "description": "Generated from cURL: curl -X DELETE 'https://fakestoreapi.com/users/1'"
+      },
+      "response": []
+    },
+    {
+      "name": "https://fakestoreapi.com/auth/login",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"username\": \"john_doe\", \"password\": \"pass123\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://fakestoreapi.com/auth/login",
+          "protocol": "https",
+          "host": [
+            "fakestoreapi",
+            "com"
+          ],
+          "path": [
+            "auth",
+            "login"
+          ]
+        },
+        "description": "Generated from cURL: curl -X POST 'https://fakestoreapi.com/auth/login' -H 'Content-Type: application/json' -d '{\"username\": \"john_doe\", \"password\": \"pass123\"}'"
+      },
+      "response": []
+    }
+  ]
 }
