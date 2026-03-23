@@ -28,4 +28,4 @@ jobs:
 
       # Langkah 4: Mengeksekusi API Test menggunakan file JSON yang sudah di-push
       - name: Run API Tests
-        run: newman run .\Data-Driven.postman_collection.json -d data-driven.csv
+        run: newman run Data-Driven.postman_collection.json -d data-driven.csv
