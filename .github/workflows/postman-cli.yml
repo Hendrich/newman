@@ -1,0 +1,28 @@
+name: Postman CLI Automation
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  postman-api-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Mengambil kode/file CSV dari repositori Anda
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      # 2. Menginstal aplikasi Postman CLI di server Linux GitHub
+      - name: Install Postman CLI
+        run: |
+          curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
+
+      # 3. Login menggunakan API Key dari brankas GitHub Secrets
+      - name: Login to Postman CLI
+        run: postman login --with-api-key ${{ secrets.POSTMAN_API_KEY }}
+
+      # 4. Menjalankan Collection Anda
+      # GANTI <COLLECTION_ID_ANDA> dengan ID yang Anda dapatkan di Postman
+      - name: Run API Test via Postman CLI
+        run: postman collection run Data-Driven.postman_collection.json -d data-driven.csv
