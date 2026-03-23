@@ -58,9 +58,9 @@
           }
         },
         "url": {
-          "raw": "https://fakestoreapi.com/users",
+          "raw": "https://jsonplaceholder.typicode.com/users",
           "protocol": "https",
-          "host": ["fakestoreapi", "com"],
+          "host": ["jsonplaceholder", "typicode", "com"],
           "path": ["users"]
         }
       },
