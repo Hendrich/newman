@@ -3,31 +3,29 @@ name: Automated API Testing with Newman
 # Kapan tes ini akan dijalankan?
 on:
   push:
-    branches: [ "main" ] # Berjalan setiap kali ada kode yang di-push ke branch main
+    branches: ["main"] # Berjalan setiap kali ada kode yang di-push ke branch main
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   test-api:
     runs-on: ubuntu-latest # Menggunakan server Linux Ubuntu gratis dari GitHub
 
     steps:
-    # Langkah 1: Checkout (mengambil/mengunduh kode dari repo GitHub ke server runner)
-    - name: Checkout Repository
-      uses: actions/checkout@v3
+      # Langkah 1: Checkout (mengambil/mengunduh kode dari repo GitHub ke server runner)
+      - name: Checkout Repository
+        uses: actions/checkout@v3
 
-    # Langkah 2: Menyiapkan mesin Node.js (syarat agar Newman bisa berjalan)
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18'
+      # Langkah 2: Menyiapkan mesin Node.js (syarat agar Newman bisa berjalan)
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
 
-    # Langkah 3: Menginstal Newman di dalam server runner
-    - name: Install Newman
-      run: npm install -g newman
+      # Langkah 3: Menginstal Newman di dalam server runner
+      - name: Install Newman
+        run: npm install -g newman
 
-    # Langkah 4: Mengeksekusi API Test menggunakan file JSON yang sudah di-push
-    - name: Run API Tests
-      run: newman run Collection_Reqres.json -d data_user.csv
-
-
+      # Langkah 4: Mengeksekusi API Test menggunakan file JSON yang sudah di-push
+      - name: Run API Tests
+        run: newman run Data-Driven.postman_collection.json -d data_user.csv
