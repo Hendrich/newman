@@ -1,0 +1,70 @@
+{
+  "info": {
+    "_postman_id": "6b0f4ce0-2ca8-4864-9f88-b575b1a6855d",
+    "name": "Data Driven",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "9541602",
+    "_collection_link": "https://go.postman.co/collection/9541602-6b0f4ce0-2ca8-4864-9f88-b575b1a6855d?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "fakestoreapi",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "// Membaca Body request dan mengganti variabel {{..}} dengan data CSV saat ini\r",
+              "let bodyYangDikirim = pm.variables.replaceIn(pm.request.body.raw);\r",
+              "\r",
+              "// Mencetak hasilnya langsung ke layar terminal Newman\r",
+              "console.log(\"MENGIRIM DATA: \" + bodyYangDikirim);\r",
+              "\r",
+              "\r",
+              "// 1. Validasi Status Code (Mengambil dari CSV atau nilai default 201)\r",
+              "let expectedStatus = pm.iterationData.get(\"status_ekspektasi\") || 201;\r",
+              "\r",
+              "pm.test(\"Status code sesuai dengan data CSV\", function () {\r",
+              "    pm.response.to.have.status(parseInt(expectedStatus));\r",
+              "});\r",
+              "\r",
+              "// 2. Validasi ID (Menyesuaikan dengan karakter FakeStore API)\r",
+              "pm.test(\"User berhasil dibuat dan server mengembalikan ID\", function () {\r",
+              "    let jsonData = pm.response.json();\r",
+              "    \r",
+              "    // Memastikan respons JSON memiliki properti bernama 'id'\r",
+              "    pm.expect(jsonData).to.have.property('id');\r",
+              "    \r",
+              "    // Memastikan tipe data 'id' tersebut adalah sebuah angka (number)\r",
+              "    pm.expect(jsonData.id).to.be.a('number');\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nama\":\"{{nama_user}}\",\r\n    \"job\":\"{{pekerjaan}}\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://fakestoreapi.com/users",
+          "protocol": "https",
+          "host": ["fakestoreapi", "com"],
+          "path": ["users"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
