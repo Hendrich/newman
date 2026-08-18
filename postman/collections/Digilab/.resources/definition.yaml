@@ -1,0 +1,14 @@
+$kind: collection
+name: Digilab
+description: ""
+variables:
+  - key: bearer_token_0e77
+    secret: true
+  - key: openai_api_key_2_0skf
+    secret: true
+auth:
+  - id: 3e18ed32-9b4c-4232-a191-efd8619f7c44
+    type: bearer
+    name: bearer auth
+    credentials:
+      token: 6e9df56bea86b84a8ccc92b0b4f3744cd4cb5f8e5c9011064606ce2fad717180

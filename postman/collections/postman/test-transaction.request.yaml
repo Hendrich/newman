@@ -1,0 +1,29 @@
+$kind: http-request
+name: test-transaction
+url: https://postman-echo.com/post
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: "{\r
+
+    \    \"transaction_type\": \"TEST-TRANSACTION\", // TEST-TRANSACTION, DUMMY-TYPE, SAMPLE-TYPE\r
+
+    \    \"reference_id\": \"{{reference_id}}\",\r
+
+    \    \"customer_name\": \"John Doe\",\r
+
+    \    \"amount\": 1000000\r
+
+    }"
+scripts:
+  - type: afterResponse
+    code: "const requestBodyJSON = JSON.parse(pm.request.body.raw);\r
+
+      console.log(\"Parsed reference_id:\", requestBodyJSON.reference_id);\r
+
+      pm.globals.set(\"reference_id\", requestBodyJSON.reference_id);"
+    language: text/javascript
+settings: {}
+order: 1000

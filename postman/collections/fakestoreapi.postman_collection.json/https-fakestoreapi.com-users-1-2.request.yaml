@@ -1,0 +1,7 @@
+$kind: http-request
+name: https://fakestoreapi.com/users/1
+description: "Generated from cURL: curl -X DELETE 'https://fakestoreapi.com/users/1'"
+url: https://fakestoreapi.com/users/1
+method: DELETE
+settings: {}
+order: 4000

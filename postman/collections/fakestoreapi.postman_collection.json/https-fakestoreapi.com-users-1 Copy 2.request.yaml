@@ -1,0 +1,16 @@
+$kind: http-request
+name: https://fakestoreapi.com/users/1 Copy 2
+description: "Generated from cURL: curl -X DELETE 'https://fakestoreapi.com/users/1'"
+url: https://fakestoreapi.com/products/2
+method: PATCH
+body:
+  type: json
+  content: "{\r
+
+    \  \"title\": \"Updated Product Title\"\r
+
+    \r
+
+    }"
+settings: {}
+order: 6000

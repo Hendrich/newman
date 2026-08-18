@@ -1,0 +1,22 @@
+$kind: http-request
+url: https://gorest.co.in/public/v2/users/7434323
+method: PUT
+body:
+  type: json
+  content: "{\r
+
+    \    \"name\": \"Rohan Trivedi\",\r
+
+    \    \"email\": \"rohan_trivedi@nolan-ortiz.test\",\r
+
+    \    \"gender\": \"male\",\r
+
+    \    \"status\": \"active\"\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: 1a26bedf00b48bde28c3be035802f45a027a2f1c4567600c217844cc24289f75
+settings: {}
+order: 2000

@@ -1,0 +1,7 @@
+$kind: http-request
+name: https://fakestoreapi.com/users
+description: "Generated from cURL: curl -X GET 'https://fakestoreapi.com/users'"
+url: https://fakestoreapi.com/users
+method: GET
+settings: {}
+order: 7000

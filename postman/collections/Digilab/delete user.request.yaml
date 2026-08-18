@@ -1,0 +1,12 @@
+$kind: http-request
+url: https://gorest.co.in/public/v2/users/7436331
+method: DELETE
+body:
+  type: json
+  content: ""
+auth:
+  type: bearer
+  credentials:
+    token: 8c378d243235e32b00ef537bcf13d9975ee303ea56f2967959a6e5a69b442de1
+settings: {}
+order: 5000

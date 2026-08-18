@@ -1,0 +1,75 @@
+$kind: http-request
+name: https://fakestoreapi.com/users
+description: "Generated from cURL: curl -X GET 'https://fakestoreapi.com/users'"
+url: https://fakestoreapi.com/users/
+method: GET
+scripts:
+  - type: afterResponse
+    code: "pm.test(\"Status code is 200\", function () {\r
+
+      \    pm.response.to.have.status(200);\r
+
+      });\r
+
+      \r
+
+      \ \r
+
+      pm.test('Response has email', function () {\r
+
+      \    const responseJson = pm.response.json();\r
+
+      \    console.log(responseJson)\r
+
+      \    // pm.expect(responseJson[0]).to.have.property('email');\r
+
+      });\r
+
+      \r
+
+      \r
+
+      const jsonData = pm.response.json();\r
+
+      const items = jsonData[0].email;\r
+
+      \r
+
+      // Check if any item has a title matching the expected value\r
+
+      const expectedTitle = pm.iterationData.get(\"john@gmail.com\");\r
+
+      \r
+
+      \r
+
+      // pm.test(\"Your Email\", function () {\r
+
+      //     var jsonData = pm.response.json();\r
+
+      //     // console.log(jsonData[1].name.firstname)\r
+
+      //     pm.expect(jsonData[1].email).to.eql(\"morrison@gmail.com\");\r
+
+      // });\r
+
+      \r
+
+      \r
+
+      // pm.test(\"Assertion Firstname\", function () {\r
+
+      //     var jsonData = pm.response.json();\r
+
+      //     // console.log(jsonData[1].name.firstname)\r
+
+      //     pm.expect(jsonData[1].name.firstname).to.eql(\"david\");\r
+
+      \    \r
+
+      // });\r
+
+      \r\n"
+    language: text/javascript
+settings: {}
+order: 1000

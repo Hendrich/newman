@@ -1,0 +1,18 @@
+$kind: http-request
+name: https://fakestoreapi.com/users/1
+description: "Generated from cURL: curl -X PUT 'https://fakestoreapi.com/users/1' -H 'Content-Type: application/json' -d '{\"username\": \"john_doe_updated\", \"email\": \"john.updated@example.com\"}'"
+url: https://fakestoreapi.com/users/1
+method: PUT
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: "{\r
+
+    \    \"username\": \"Budi_jo_testing\",\r
+
+    \    \"email\": \"john.updated@example.com\"\r
+
+    }"
+settings: {}
+order: 3000

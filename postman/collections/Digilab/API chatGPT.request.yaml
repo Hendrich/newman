@@ -1,0 +1,42 @@
+$kind: http-request
+description: "Generated from cURL: curl https://api.openai.com/v1/chat/completions \\\r
+
+  \  -H \"Content-Type: application/json\" \\\r
+
+  \  -H \"Authorization: {{bearer_token_0e77}}\" \\\r
+
+  \  -d '{\r
+
+  \    \"model\": \"gpt-4o-mini\",\r
+
+  \    \"store\": true,\r
+
+  \    \"messages\": [\r
+
+  \      {\"role\": \"user\", \"content\": \"write a haiku about ai\"}\r
+
+  \    ]\r
+
+  \  }'\r\n"
+url: https://api.openai.com/v1/chat/completions
+method: POST
+headers:
+  Content-Type: application/json
+  Authorization: "{{bearer_token_0e77}}"
+body:
+  type: json
+  content: "{\r
+
+    \    \"model\": \"gpt-4o-mini\",\r
+
+    \    \"store\": true,\r
+
+    \    \"messages\": [\r
+
+    \      {\"role\": \"user\", \"content\": \"write a haiku about ai\"}\r
+
+    \    ]\r
+
+    \  }"
+settings: {}
+order: 8000

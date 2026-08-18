@@ -1,0 +1,37 @@
+$kind: http-request
+url: https://gorest.co.in/public/v2/users/7436330
+method: GET
+auth:
+  type: bearer
+  credentials:
+    token: 8c378d243235e32b00ef537bcf13d9975ee303ea56f2967959a6e5a69b442de1
+scripts:
+  - type: afterResponse
+    code: "pm.test(\"Status code is 200\", function () {\r
+
+      \    pm.response.to.have.status(200);\r
+
+      });\r
+
+      \r
+
+      pm.test(\"Header is JSON\", function () {\r
+
+      \    pm.response.to.have.header(\"Content-Type\");\r
+
+      });\r
+
+      \r
+
+      pm.test(\"Response body contains name\", function () {\r
+
+      \    var jsonData = pm.response.json();\r
+
+      \    pm.expect(jsonData.name).to.eql(\"Ambar Pilla\");\r
+
+      });\r
+
+      \r\n"
+    language: text/javascript
+settings: {}
+order: 4000

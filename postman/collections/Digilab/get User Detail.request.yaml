@@ -1,0 +1,39 @@
+$kind: http-request
+url: "{{url}}/api/users?page=2"
+method: GET
+queryParams:
+  page: "2"
+auth:
+  type: noauth
+scripts:
+  - type: beforeRequest
+    code: "var url = pm.globals.get(\"url_details\")\r
+
+      \r
+
+      const echoGetRequest = {\r
+
+      \        url: url,\r
+
+      \        method: 'GET',\r
+
+      \        header: { 'content-type': 'application/json' }\r
+
+      \    };\r
+
+      \r
+
+      pm.sendRequest(echoGetRequest, function (err, response){\r
+
+      \   \r
+
+      \    const jsonData = response.json();\r
+
+      \  // console.log(\"Response body:\", jsonData.data[4].id);\r
+
+      \   pm.globals.set(\"variable_id\", jsonData.data[3].id)\r
+
+      });"
+    language: text/javascript
+settings: {}
+order: 1000

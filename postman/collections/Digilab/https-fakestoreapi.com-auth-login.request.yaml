@@ -1,0 +1,48 @@
+$kind: http-request
+name: https://fakestoreapi.com/auth/login
+description: "Generated from cURL: curl -X POST 'https://fakestoreapi.com/auth/login' -H 'Content-Type: application/json' -d '{\"username\": \"john_doe\", \"password\": \"pass123\"}'"
+url: https://fakestoreapi.com/auth/login
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: "\r
+
+    \    {\r
+
+    \        \"username\": \"mor_2314\",\r
+
+    \        \"password\": \"83r5^_\"\r
+
+    \    }\r\n"
+auth:
+  type: bearer
+  credentials:
+    token: 8c378d243235e32b00ef537bcf13d9975ee303ea56f2967959a6e5a69b442de1
+scripts:
+  - type: afterResponse
+    code: "pm.test(\"Your test name\", function () {\r
+
+      \    //var jsonData = pm.response.json();\r
+
+      \    pm.response.to.have.status(200);\r
+
+      \    });\r
+
+      \r
+
+      // pm.test(\"Status code name has string\", function () {\r
+
+      //     pm.test(\"Status code is 200\", function () {\r
+
+      //         pm.response.to.have.status(200);\r
+
+      //     });\r
+
+      //     pm.response.to.have.status(\"Created\");\r
+
+      // });"
+    language: text/javascript
+settings: {}
+order: 6000

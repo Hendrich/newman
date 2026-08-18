@@ -1,0 +1,13 @@
+workspace:
+  id: cb2afdf2-9fcd-4817-a8b0-ef1d3837f29a
+localResources:
+  collections:
+    - ../Data-Driven.postman_collection.json
+    - ../fakestoreapi.postman_collection.json
+cloudResources:
+  collections:
+    ../postman/collections/postman: 9541602-c8956fde-c0fe-45a1-a321-59921707f431
+    ../postman/collections/fakestoreapi.postman_collection.json: 9541602-280af6e5-d771-43ed-a8ef-b87f411f80c7
+    ../postman/collections/Digilab: 9541602-3efde3df-aaaf-45ed-9240-fbdf785ee37c
+  globals:
+    ../postman/globals/workspace.globals.yaml: f09e7c1c-f48e-4d93-84c7-52301529ed15

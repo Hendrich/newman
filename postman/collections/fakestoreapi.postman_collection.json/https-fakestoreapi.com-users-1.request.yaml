@@ -1,0 +1,20 @@
+$kind: http-request
+name: https://fakestoreapi.com/users
+description: "Generated from cURL: curl -X POST 'https://fakestoreapi.com/users' -H 'Content-Type: application/json' -d '{\"username\": \"john_doe\", \"email\": \"john@example.com\", \"password\": \"pass123\"}'"
+url: https://fakestoreapi.com/users
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: "{\r
+
+    \    \"username\": \"gogon\",\r
+
+    \    \"email\": \"gohn@example.com\",\r
+
+    \    \"password\": \"pass123\"\r
+
+    }"
+settings: {}
+order: 2000
